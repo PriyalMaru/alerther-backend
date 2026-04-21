@@ -2,7 +2,11 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/alert')
+@app.route("/")
+def home():
+    return "AlertHer backend is running!"
+
+@app.route("/alert")
 def alert():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
@@ -15,5 +19,5 @@ def alert():
 
     return "Alert Triggered"
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
